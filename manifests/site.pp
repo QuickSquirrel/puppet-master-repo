@@ -1,4 +1,4 @@
-node /^slave\d.pappet/{
+node /^slave\d.puppet/{
 
  package { 'httpd':
   ensure => latest,
