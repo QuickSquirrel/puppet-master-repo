@@ -12,7 +12,7 @@ node 'slave1.puppet', 'slave2.puppet' {
 
 
 node slave1.puppet {
- file {'/var/www/php/index.html':
+ file {'/var/www/html/index.html':
   ensure => file,
   source => 'puppet:///modules/static/index.html'
  }
@@ -24,7 +24,7 @@ node slave2.puppet {
   ensure => latest,
  }
 
- file {'/var/www/php/index.php':
+ file {'/var/www/html/index.php':
   ensure => file,
   source => 'puppet:///modules/dynamic/index.php'
  }
