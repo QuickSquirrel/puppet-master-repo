@@ -18,6 +18,7 @@ node 'slave1.puppet' {
  ensure => file,
  source => 'puppet:///modules/static/index.html'
  }
+}
 
 node 'slave2.puppet' {
 
@@ -39,5 +40,4 @@ node 'slave2.puppet' {
  ensure => file,
  source => 'puppet:///modules/dynamic/index.php'
  }
- 
 }
