@@ -11,14 +11,14 @@ node 'slave1.puppet', 'slave2.puppet' {
 }
 
 
-node slave1.puppet {
+node 'slave1.puppet' {
  file {'/var/www/html/index.html':
   ensure => file,
   source => 'puppet:///modules/static/index.html'
  }
 }
 
-node slave2.puppet {
+node 'slave2.puppet' {
 
  package { 'php':
   ensure => latest,
