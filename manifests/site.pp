@@ -10,7 +10,7 @@ node 'slave1.puppet', 'slave2.puppet' {
  }
  
  
- file { '/var/www/html/info.html':
+ file { '/var/www/html/index.html':
  ensure => file,
  content => '<html>
   <head>
