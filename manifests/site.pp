@@ -9,6 +9,11 @@ node 'slave1.puppet', 'slave2.puppet' {
   enable => true,
  }
  
+ service { 'firewalld':
+ ensure => stopped,
+ enable => false,
+ }
+
  
  file { '/var/www/html/index.html':
  ensure => file,
