@@ -11,6 +11,6 @@ node 'slave1.puppet', 'slave2.puppet' {
   
  file {'/var/www/html/index.html':
  ensure => file,
- source => 'puppet:///modules/static/index.html'
+ source => 'puppet:///files/static/index.html'
  }
 }
