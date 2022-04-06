@@ -1,4 +1,4 @@
-node 'slave1.puppet', 'slave2.puppet' {
+node 'slave1.puppet' {
 
  package { 'httpd':
   ensure => latest,
@@ -19,18 +19,25 @@ node 'slave1.puppet', 'slave2.puppet' {
  source => 'puppet:///modules/static/index.html'
  }
 
+node 'slave2.puppet' {
 
+ package { ['httpd','php'] :
+  ensure => latest,
+ }
+
+ service { 'httpd':
+  ensure => running,
+  enable => true,
+ }
  
-# file { '/var/www/html/index.html':
-# ensure => file,
-# content => '<html>
-#  <head>
-#    <title>Success!</title>
-#  </head>
-#  <body>
-#    You Vagrantfile is fine if you can see this message.
-#  </body>
-#</html>',
-# }
+ service { 'firewalld':
+ ensure => stopped,
+ enable => false,
+ }
+
+ file {'/var/www/html/index.php':
+ ensure => file,
+ source => 'puppet:///modules/dynamic/index.php'
+ }
  
 }
