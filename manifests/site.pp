@@ -47,5 +47,6 @@ node 'slave2.puppet' {
  
  file {'/root/README':
   ensure => absente,
+  present => pressent,
  }
 }
