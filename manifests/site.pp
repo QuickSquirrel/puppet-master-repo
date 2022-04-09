@@ -18,20 +18,34 @@ node default {
 
 node 'slave1.puppet' {
 
+ package { 'httpd':
+  ensure => latest,
+ }
+
  file {'/var/www/html/index.html':
  ensure => file,
  source => 'puppet:///modules/static/index.html'
+ }
+
+ service { 'httpd':
+  ensure => running,
+  enable => true,
  }
 }
 
 node 'slave2.puppet' {
 
- package { 'php' :
+ package { ['httpd','php'] :
   ensure => latest,
  }
 
  file {'/var/www/html/index.php':
- ensure => file,
- source => 'puppet:///modules/dynamic/index.php'
+  ensure => file,
+  source => 'puppet:///modules/dynamic/index.php'
+ }
+ 
+ service { 'httpd':
+  ensure => running,
+  enable => true,
  }
 }
