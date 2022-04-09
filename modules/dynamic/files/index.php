@@ -6,7 +6,7 @@
     <?php
       $limit = rand(1, 1000);
       for ($i=0; $i<$limit; $i++){
-        echo "<p>Hello, world! WOW</p>";
+        echo "<p>Hello, world!</p>";
       }
     ?>
   </body>
