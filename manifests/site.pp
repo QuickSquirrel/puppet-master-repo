@@ -35,6 +35,13 @@ node 'slave2.puppet' {
   enable => true,
  }
  
+ firewalld_rich_rule { 'Accept HTTP from any':
+  ensure => present,
+  zone   => 'restricted',
+  service => 'http',
+  action  => 'accept',
+ }
+ 
  file {'/root/README':
   ensure => absente,
  }
