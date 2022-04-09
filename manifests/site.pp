@@ -1,21 +1,3 @@
-node default {
-
- package { 'httpd':
-  ensure => latest,
- }
-
- service { 'httpd':
-  ensure => running,
-  enable => true,
- }
-
- service { 'firewalld':
- ensure => stopped,
- enable => false,
- }
-
-}
-
 node 'slave1.puppet' {
 
  package { 'httpd':
