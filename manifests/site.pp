@@ -14,6 +14,11 @@ node 'slave1.puppet' {
   enable => true,
  }
 
+ service { 'firewalld':
+  ensure => stopped,
+  enable => false,
+ }
+
  file {'/root/README':
   ensure => absente,
  }
@@ -35,11 +40,9 @@ node 'slave2.puppet' {
   enable => true,
  }
  
- firewalld_rich_rule { 'Accept HTTP from any':
-  ensure => present,
-  zone   => 'restricted',
-  service => 'http',
-  action  => 'accept',
+ service { 'firewalld':
+  ensure => stopped,
+  enable => false,
  }
  
  file {'/root/README':
