@@ -5,13 +5,17 @@ node 'slave1.puppet' {
  }
 
  file {'/var/www/html/index.html':
- ensure => file,
- source => 'puppet:///modules/static/index.html'
+  ensure => file,
+  source => 'puppet:///modules/static/index.html'
  }
 
  service { 'httpd':
   ensure => running,
   enable => true,
+ }
+
+ file {'/root/README':
+  ensure => absente,
  }
 }
 
@@ -29,5 +33,9 @@ node 'slave2.puppet' {
  service { 'httpd':
   ensure => running,
   enable => true,
+ }
+ 
+ file {'/root/README':
+  ensure => absente,
  }
 }
