@@ -20,7 +20,7 @@ node 'slave1.puppet' {
  }
 
  file {'/root/README':
-  ensure => absente,
+  ensure => absent,
  }
 }
 
@@ -46,7 +46,6 @@ node 'slave2.puppet' {
  }
  
  file {'/root/README':
-  ensure => absente,
-  present => pressent,
+  ensure => absent,
  }
 }
